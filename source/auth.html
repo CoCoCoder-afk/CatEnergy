@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CatEnergy Auth</title>
+    <link rel="stylesheet" href="css/styles.min.css">
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
+    <script async src="./js/auth.js"></script>
+</head>
+<body>
+  <main>
+    <form id = "authForm">
+      <div class = "main__login login">
+        <div class = "login__wrapper">
+          <label for = "email">Логин</label>
+          <input required type = "email" id = "loginEmail" class = "login__email" placeholder = "Ваш e-mail">
+        </div>
+        <div class = "login__wrapper">
+          <label for = "password">Пароль</label>
+          <input required type = "password" id = "loginPassword" class = "login__password" placeholder = "Ваш пароль">
+        </div>
+        <button class="login__button_signin login__button" onclick = "signIn()" id = "loginSignIn">Войти</button>
+        <button class="login__button_signup login__button" onclick = "signUp()" id = "loginSignUp">Зарегистрироваться</button>
+        <button class="login__button login__button_back" onclick="backMenu()" id="loginBackMenu">Назад</button>
+      </div>
+    </form>
+  </main>
+  </body>
+</html>

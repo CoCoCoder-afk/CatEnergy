@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale = 1">
+  <title>cat-energy-form-desktop</title>
+  <link rel = "stylesheet" href = "CSS/styles.min.css">
+</head>
+<body>
+  <header class = "site-header container">
+    <nav class = "site-header__navigation navigation">
+      <div class = "navigation__link-wrapper">
+        <a href = "index.html" class = "navigation__link">
+          <svg class="img-logo-desktop navigation__logo">
+            <use xlink:href="img/sprite.svg#logo-desktop"></use>
+          </svg>
+          <svg class="img-logo-desktop navigation__logo">
+            <use xlink:href = "img/sprite.svg#logo-tablet"></use>
+          </svg>
+          <svg class = "img-logo-desktop navigation__logo">
+            <use xlink:href = "img/sprite.svg#logo-mobile"></use>
+          </svg>
+        </a>   
+      </div>
+      <ul class = "navigation__menu nav-menu distance-between">
+        <li class = "nav-menu__item">
+          <a href = "index.html" class = "nav-menu__link_hover_gray nav-menu__link nav-menu__link_color_black" title = "Главная">Главная</a>
+        </li>
+        <li class = "nav-menu__item">
+          <a href = "catalog.html" class = "nav-menu__link_hover_gray nav-menu__link nav-menu__link_color_black" title = "Каталог продукции">Каталог продукции</a>
+        </li>
+        <li class = "nav-menu__item">
+          <a href = "form.html" class = "nav-menu__link_hover_gray nav-menu__link nav-menu__link_color_black nav-menu__link_active_green" title = "Подбор программы">Подбор программы</a>
+        </li>
+        <li class = "nav-menu__item">
+          <a href = "auth.html" class = "nav-menu__link_hover_gray nav-menu__link nav-menu__link_color_black" title = "Подбор программы">Войти</a>
+        </li>
+        <li class = "nav-menu__item">
+          <a class = "" href = "#">
+            <svg class = "img-logo-header navigation__logo">
+              <use xlink:href = "img/sprite.svg#logo-mobile-header"></use>
+            </svg>
+          </a>
+        </li>
+        <li class = "nav-menu__item">
+          <a class = "" href = "#">
+            <svg class = "img-logo-menu navigation__logo">
+              <use xlink:href = "img/sprite.svg#mobile-menu"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main class = "site-main">
+    <section class = "site-main__program container program">
+      <form id = "mainForm">
+        <h3 class = "program__heading">Подбор программы</h3>
+        <p class = "program__text">Заполните анкету и мы подберем <br> программу питания для вашего кота</p>
+        <div class = "program__form program-form special__container">
+          <fieldset class = "program-form__list program-list">
+            <div class = "program-item">
+              <label class = "program-item__text" for = "name">Имя:*</label>
+              <input data-rule = "name" maxlength = "30" placeholder="Барсик" id = "name" type = "text" required class = "program-item__input-text">
+            </div>
+            <div class = "program-item">
+              <label for = "weight" class = "program-item__text">Вес (кг):*</label>
+              <input data-rule = "weight" id = "weight"  placeholder= "7" type = "text" required class = "program-item__input-text">
+            </div>
+            <div class = "program-item">
+              <label class = 'program-item__text age' for ="age">Возраст (лет):</label>
+              <input data-rule = "age" id = "age" maxlength="30" type = "text" placeholder= "7" class = "program-item__input-text">
+            </div>
+          </fieldset>
+          <fieldset class = "program-form__list container_abort program-list program-list_radio">
+            <ul class = "program-list__properties properties">
+              <li class="properties__item">
+                <input id = "slim" name = "chooseOption" type = "radio" class = "properties__input" checked>
+                <label class = "properties__label" for = "slim">Похудение</label>
+              </li>
+              <li class="properties__item">
+                <input id = "getMass" name = "chooseOption" type = "radio" class = "properties__input">
+                <label class = "properties__label" for = "getMass">Набор массы</label>
+              </li>
+              <li class="properties__item">
+                <input id = "idk" name = "chooseOption" type = "radio" class = "properties__input">
+                <label class = "properties__label" for = "idk">Не знаю (нужен ваш совет)</label>
+              </li>
+            </ul>
+          </fieldset>
+        </div>
+        <div class = "special__container program_disabled">
+          <h3 class = "additional__heading">Контактные данные (владельца кота)</h3>
+          <div class = "program__form program-form">
+            <fieldset class = "program-form__list program-list program-list_width_100">
+              <div class = "program-item program-item_float_left">
+                <label for  = "email" class = "program-item__text">E-MAIL:*</label>
+                <input data-rule = "email" id = "email" placeholder= "kuklachev@gmail.com" type = "email" required class = "program-item__input-text">
+                <svg class="img-logo-mail program-item__image">
+                  <use xlink:href="img/sprite.svg#mail"></use>
+                </svg>
+              </div>
+              <div class = "program-item program-item_display_inline-block">
+                <label class = "program-item__text" for = "phone">Телефон:*</label>
+                <input data-rule = "phone" id = "phone" placeholder = "8 (960) 900-60-90" type = "tel" required class = "program-item__input-text">
+                <svg class="img-logo-phone program-item__image program-item__image_phone">
+                  <use xlink:href="img/sprite.svg#phone"></use>
+                </svg>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class = "special__container program_disabled form_container site-main__comment comment">
+          <h3 class = "additional__heading">Комментарий</h3>
+          <textarea maxlength="500" id = "comment" placeholder = "РАССКАЖИТЕ ОБО ВСЕХ ПОВАДКАХ КОТА" class = "comment__text"></textarea>  
+        </div>
+        <div class = "program_disabled site-main__extra extra special__container form_container">
+          <h3 class = "additional__heading">Дополнительно</h3>
+          <fieldset>
+            <ul class = "extra__list">
+              <li class="extra__item extra-prop">
+                <input checked id = "sweetener" type = "checkbox" class = "extra-prop__input">
+                <label for = "sweetener" class = "extra-prop__text">Сахарозаменитель</label>
+              </li>
+              <li class="extra__item">
+                <input id = "water" type = "checkbox" class = "extra-prop__input">
+                <label for = "water" class = "extra-prop__text">Питьевая вода</label>
+              </li>
+              <li class="extra__item">
+                <input id = "milk" type = "checkbox" class = "extra-prop__input">
+                <label for = "milk" class = "extra-prop__text">Молоко</label>
+              </li>
+              <li class="extra__item">
+                <input id = "vitamins" type = "checkbox" class = "extra-prop__input">
+                <label for = "vitamins" class = "extra-prop__text">Витамины</label>
+              </li>
+            </ul>
+          </fieldset>
+          <input type = "submit" class = "product__button extra-button" value = "Отправить заявку" name = "extra-button" id = "extra-button">
+          <span  class = "extra__info">* — обязательные поля</span>
+          <br>
+        </div>
+        <div class = "form__modal modal" id = "modal">
+          <svg class="img-logo-form modal__image">
+            <use xlink:href="img/sprite.svg#tick-success"></use>
+          </svg>
+          <span class = "modal__text"> Отправка формы прошла успешно!</span>
+        </div>
+      </form>
+    </section>
+    <section class = "site-main__location location container location_margin-top ">
+      <div class = "location__info info_theme_gray info">
+        <div class = "location__item">
+          <p class = "info__text">Приглашаем к сотрудничеству дилеров!</p>
+        </div>
+        <div class = "location__item">
+          <p class = "info__street">  ул. Большая <br> Конюшенная, д. 19/8 <br><br> Санкт-Петербург</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class = "site-footer container container__footer">
+    <a href = "#" class = "site-footer__link site-footer__logo">
+      <svg class="img-logo-footer contacts__image">
+        <use xlink:href="img/sprite.svg#footer-logo"></use>
+      </svg>
+    </a>
+    <hr class = "contacts__between-line">
+    <ul class = "site-footer__contacts contacts">
+      <li class = "contacts__item">
+        <a class = "contacts__link" href = "#">
+          <svg class="img-logo-vk contacts__image">
+            <use xlink:href="img/sprite.svg#vk"></use>
+          </svg>
+        </a>
+      </li>
+      <li class = "contacts__item">
+        <a class = "contacts__link" href = "#">
+          <svg class="img-logo-inst contacts__image">
+            <use xlink:href="img/sprite.svg#insta"></use>
+          </svg>
+        </a>
+      </li>
+      <li class = "contacts__item">
+        <a class = "contacts__link" href = "#">
+          <svg class="img-logo-fb contacts__image">
+            <use xlink:href="img/sprite.svg#fb"></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+    <hr class = "contacts__between-line">
+    <div class = "site-footer__logo-developer logo-developer">
+      <a class = "contacts__link-common" href = "#" title = "Ссылка на HTML Academy"><span class = "contacts__link-text">HTML Academy</span>
+      <span class = "contacts__link contacts__link_htmlacademy">
+        <svg class="img-logo-academy contacts__image logo-developer__logo">
+         <use xlink:href="img/sprite.svg#htmlacademy"></use>
+       </svg>
+      </span>
+      </a>
+    </div>
+  </footer>
+  <script async src = "js/picturefill.min.js"></script>
+  <script type="module" await src = "js/forms.js"></script>
+  <script>
+    document.createElement("picture");
+  </script>
+</body>
+</html>

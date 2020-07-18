@@ -1,0 +1,36 @@
+.results {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  justify-content: flex-end;
+  padding-bottom: 68px;
+  &__image {
+    margin: 0 24px;
+  }
+  &__text {
+    font-size: 17px;
+    text-transform: uppercase;
+    border-bottom: 1px dashed #bebebe;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    justify-content: center;
+    position: relative;
+    top: -80px;
+  }
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    flex-shrink: 1;
+    width: 732px;
+    margin-top: 50px;
+    margin-left: 300px;
+  }
+  @media screen and (max-width: 767px) {
+    justify-content: center;
+    align-items: center;
+    margin-top: px;
+    padding: 0px;
+    &__text {
+      border-bottom: 0px;
+    }
+  }
+}

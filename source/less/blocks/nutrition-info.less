@@ -1,0 +1,102 @@
+.nutrition-info {
+  display: inline;
+  margin-left: 80px;
+  &__image {
+    float: right;
+    margin-right: 216px;
+    display: inline-block;
+    margin-top: 34px;
+  }
+  &__heading {
+    margin-left: 40px;
+    font-size:45px;
+    margin-top: 100px;   
+  } 
+  &__text {
+    margin-left: 40px;
+    margin-top:-10px;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+  &__button {
+    margin-left: 40px;
+    margin-top: 20px;
+    font-size:16px;
+    text-transform: uppercase;
+    font-family: Oswald;
+    padding: 10px 20px;
+    background-color: #68b738;
+    border: 0px;
+    color: white;
+    &:hover {
+      opacity: 0.9;
+    }
+    &:active {
+      opacity: 0.6;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    color: white;
+    text-align: center;
+    &__text {
+      position: absolute;
+      margin: 0px;
+      top: 190px;
+      font-size:14px;
+      width: 298px;
+      margin-left: -5px;
+    }
+    &__button {
+      position: absolute;
+      margin: 0px;
+      top: 520px;
+      width: 280px;
+    }
+    &__heading {
+      width: 245px;
+      font-size: 34px;
+      position: absolute;
+      margin: 0px;
+      top: 95px;
+      margin-left: 20px;
+    }
+    &__image {
+      width: 280px;
+      height: 270px;
+      margin-top: 175px;
+      left: 210px;
+      z-index: -1;
+      position: relative;
+    }
+  }
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    &__text {
+      position: absolute;
+      margin: 0px;
+      margin-left: 95px;
+      top: 300px;
+    }
+    &__button {
+      position: absolute;
+      margin: 0px;
+      margin-left: 95px;
+      top: 369px;
+    }
+    &__heading {
+      width: 410px;
+      font-size: 54px;
+      position: absolute;
+      margin: 0px;
+      margin-left: 95px;
+      top: 144px;
+    }
+    &__image {
+      width: 709px;
+      height: 609px;
+      margin-top: 210px;
+      left: 170px;
+      z-index: -1;
+      position: relative;
+    }
+  }
+}

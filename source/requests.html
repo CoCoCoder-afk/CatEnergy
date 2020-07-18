@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Список заявок</title>
+  <link rel = "stylesheet" href = "css/styles.min.css">
+</head>
+<body>
+    <main class="main__menu menu">
+        <section class="menu__list list">
+            <button id="signOutBtn" class="list__button" onclick="signOut()">Выйти</button>
+            <h1 class="list__heading">Заявки пользователей</h1>
+            <div class="list__item item">
+                <hr>
+                <p class="item__text">
+                    <span id="userName"></span>
+                    <br>
+                    <span id="userAge"></span>
+                    <br><span id="userWeight"></span>
+                    <br>
+                    <span id="userEmail"></span>
+                    <br>
+                    <span id="userPhone"></span>
+                    <br>
+                    <span id="userComment"></span>
+                    <br><span id="userSweetener"></span>
+                    <br>
+                    <span id="userWater"></span>
+                    <br>
+                    <span id="userMilk"></span>
+                    <br>
+                    <span id="userVitamins"></span>
+                <p class="item__sub">
+                    true - требуется / false - не требуется
+                    <button onclick="requestDelete()" id="deleteBtn" class="item__delete">Удалить</button>
+                </p>
+                </p>
+                <hr>
+            </div>
+        </section>
+    </main>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
+    <script src="./js/listRequests.js"></script>
+</body>
+</html>

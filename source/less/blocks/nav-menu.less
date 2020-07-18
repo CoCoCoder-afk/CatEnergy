@@ -1,0 +1,123 @@
+.nav-menu {
+    &__item {
+        display: inline-block;
+        margin-left: 38px;
+    }
+
+    &__link {
+        text-transform: uppercase;
+        color: white;
+        text-decoration: none;
+
+        &_black {
+            color: black;
+        }
+
+        &:hover {
+            color: fadeout(white, 20%);
+        }
+
+        &:active {
+            color: fadeout(white, 50%);
+        }
+
+        &_color_black {
+            color: black;
+        }
+
+        &_active {
+            &_white {
+                border-bottom: 1px solid white;
+                padding: 3px;
+            }
+
+            &_green {
+                border-bottom: 1px solid #68b738;
+                padding: 3px;
+            }
+        }
+
+        &_hover_gray {
+            &:hover {
+                color: #919191;
+            }
+
+            &:active {
+                color: #cccccc;
+            }
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        display: flex !important;
+        align-items: center !important;
+        width: calc(100% - 105px);
+        justify-content: space-between !important;
+
+        &__item {
+            margin-left: 0px !important;
+
+            &:nth-of-type(1) {
+                display: none;
+            }
+
+            &:nth-of-type(2) {
+                display: none;
+            }
+
+            &:nth-of-type(3) {
+                display: none;
+            }
+
+            &:nth-of-type(4) {
+                display: none;
+            }
+        }
+
+        &__link {
+            color: #222222;
+
+            &_active {
+                &_white {
+                    border-color: #68b738;
+                }
+            }
+        }
+
+        &__button {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1439px) {
+        display: flex !important;
+        justify-content: space-around;
+        flex-wrap: nowrap;
+        align-items: center;
+        &__item {
+            margin-left: 36px;
+
+            &:nth-of-type(5) {
+                display: none;
+            }
+
+            &:nth-of-type(6) {
+                display: none;
+            }
+        }
+
+        &__link {
+            color: #222222;
+
+            &_active {
+                &_white {
+                    border-color: #68b738;
+                }
+            }
+        }
+
+        &__button {
+            display: none;
+        }
+    }
+}
