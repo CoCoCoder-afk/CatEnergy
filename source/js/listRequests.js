@@ -14,6 +14,8 @@ let database = firebase.database(),
     ref = database.ref("requests"),
     data;
 
+let content = "";
+
 function signOut() {
 
     auth.signOut();
@@ -24,18 +26,11 @@ let flag = true;
 
 ref.on("value", function (snapshot) {
     snapshot.forEach(function (childSnapshot) {
-        data = childSnapshot.val();
-        document.querySelector("#userWeight").textContent = data.weight;
-        document.querySelector("#userName").textContent = data.name;
-        document.querySelector("#userComment").textContent = data.comment;
-        document.querySelector("#userAge").textContent = data.age;
-        document.querySelector("#userEmail").textContent = data.email;
-        document.querySelector("#userPhone").textContent = data.phone;
-        document.querySelector("#userSweetener").textContent = data.sweetener;
-        document.querySelector("#userWater").textContent = data.water;
-        document.querySelector("#userMilk").textContent = data.milk;
-        document.querySelector("#userVitamins").textContent = data.vitamins;
+        data = childSnapshot.val(); 
+        content += `<div class="items__item item"><hr><p class="item__text"><span id="userName">${data.name}</span><br><span id="userAge">${data.age}</span><br><span id="userWeight">${data.weight}</span><br><span id="userEmail">${data.email}</span><br><span id="userPhone">${data.phone}</span><br><span id="userComment">${data.comment}</span><br><span id="userSweetener">${data.sweetener}</span><br><span id="userWater">${data.water}</span><br><span id="userMilk">${data.milk}</span><br><span id="userVitamins">${data.vitamins}</span></p><p class="item__sub">true - user needs / false - user don't<button onclick="requestDelete()" id="deleteBtn" class="item__delete">Delete</button></p><hr></div>`
     });
+    let items = document.querySelector('#items');
+    items.insertAdjacentHTML('afterEnd', content);
 })
 
 function requestDelete() {
