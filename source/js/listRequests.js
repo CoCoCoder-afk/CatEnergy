@@ -1,5 +1,3 @@
-import { signOut } from "./utils.js";
-
 var firebaseConfig = {
     apiKey: "AIzaSyAXNJV2NKPM6wEFE84iwu31snNtQFrpKiA",
     authDomain: "catenergy-bd4c1.firebaseapp.com",
@@ -18,6 +16,12 @@ let database = firebase.database(),
 
 let content = "";
 
+function signOut() {
+
+    auth.signOut();
+    window.location.replace("index.html");
+
+}
 let keys = [];
 let child_removed = false;
 

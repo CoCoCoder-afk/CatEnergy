@@ -1,4 +1,5 @@
-import {Requests} from "./requests.js";
+import { Requests } from "./requests.js";
+import { validate } from "./utils.js";
 
 let form = document.getElementById("mainForm"),
     weight = document.querySelector("#weight"),
@@ -17,28 +18,6 @@ let form = document.getElementById("mainForm"),
     vitamins = document.querySelector("#vitamins"),
     comment = document.querySelector("#comment");
 console.log(name, form, weight);
-
-const errorText = {
-  phone: "Укажите верный номер телефона!",
-  name: "Укажите верное имя кота!",
-  email: "Укажите верную почту!",
-  weight: "Укажите вес вашего питомца!",
-  age: "Укажите возраст вашего питомца!",
-  password: "Исключите из вашего пароля спец. символы!"
-};
-
-const regExp = {
-  email: /^((([0-9A-Za-z]{1}[-0-9A-z\.]{1,}[0-9A-Za-z]{1})|([0-9А-Яа-я]{1}[-0-9А-я\.]{1,}[0-9А-Яа-я]{1}))@([-A-Za-z]{1,}\.){1,2}[-A-Za-z]{2,})$/,
-  weight: /^([0-1]?[0-9])$/,
-  phone: /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/,
-  name: /^[a-zA-Zа-яА-Я"][a-zA-Zа-яА-Я-"]+[a-zA-Zа-яА-Я"]$/,
-  age: /^([0-2]?[0-9])$/,
-  password: /(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/,
-};
-
-let validate = function(key, value) {
-  (!(regExp[key].test(value))) ? document.getElementById(key).setCustomValidity(errorText[key]) : document.getElementById(key).setCustomValidity("");
-};
 
 name.addEventListener("input", function() {
   let nameValue = name.value;
