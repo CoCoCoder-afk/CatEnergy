@@ -1,4 +1,4 @@
-import { Requests } from "./requests.js";
+import { Requests } from "./utils.js";
 import { validate } from "./utils.js";
 
 let form = document.getElementById("mainForm"),
@@ -17,37 +17,36 @@ let form = document.getElementById("mainForm"),
     milk = document.querySelector("#milk"),
     vitamins = document.querySelector("#vitamins"),
     comment = document.querySelector("#comment");
-console.log(name, form, weight);
 
-name.addEventListener("input", function() {
+name.addEventListener("input", name.fnVal = function fn() {
   let nameValue = name.value;
   validate("name", nameValue);
-  this.removeEventListener(event.type,arguments.callee,event.eventPhase);
 }, false);
+name.removeEventListener("click", name.fnVal, false);
 
-email.addEventListener("input", function() {
+email.addEventListener("input", email.fnVal = function fn() {
   let emailValue = email.value;
   validate("email", emailValue);
-  this.removeEventListener(event.type,arguments.callee,event.eventPhase);
 }, false);
+email.removeEventListener("click", email.fnVal, false);
 
-phone.addEventListener("input", function() {
+phone.addEventListener("input", phone.fnVal = function fn() {
   let phoneValue = phone.value;
   validate("phone", phoneValue);
-  this.removeEventListener(event.type,arguments.callee,event.eventPhase);
 }, false);
+phone.removeEventListener("click", phone.fnVal, false);
 
-age.addEventListener("input", function() {
+age.addEventListener("input", age.fnVal = function fn() {
   let ageValue = age.value;
   validate("age", ageValue);
-  this.removeEventListener(event.type,arguments.callee,event.eventPhase);
 }, false);
+age.removeEventListener("click", age.fnVal, false);
 
-weight.addEventListener("input", function() {
+weight.addEventListener("input", weight.fnVal = function fn() {
   let weightValue = weight.value;
   validate("weight", weightValue);
-  this.removeEventListener(event.type,arguments.callee,event.eventPhase);
 }, false);
+weight.removeEventListener("click", weight.fnVal, false);
 
 form.addEventListener("submit", function(event) {
   event.preventDefault();

@@ -1,42 +1,39 @@
-var firebaseConfig = {
-    apiKey: "AIzaSyAXNJV2NKPM6wEFE84iwu31snNtQFrpKiA",
-    authDomain: "catenergy-bd4c1.firebaseapp.com",
-    databaseURL: "https://catenergy-bd4c1.firebaseio.com",
-    projectId: "catenergy-bd4c1",
-    storageBucket: "catenergy-bd4c1.appspot.com",
-    messagingSenderId: "502760223466",
-    appId: "1:502760223466:web:6972347aaacff6973f5d93"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
 export const errorText = {
-    phone: "Óêàæèòå âåğíûé íîìåğ òåëåôîíà!",
-    name: "Óêàæèòå âåğíîå èìÿ êîòà!",
-    email: "Óêàæèòå âåğíóş ïî÷òó!",
-    weight: "Óêàæèòå âåñ âàøåãî ïèòîìöà!",
-    age: "Óêàæèòå âîçğàñò âàøåãî ïèòîìöà!",
-    password: "Èñêëş÷èòå èç âàøåãî ïàğîëÿ ñïåö. ñèìâîëû!"
+    phone: "Ğ£ĞºĞ°Ğ¶Ğ¸Ñ‚Ğµ Ğ²ĞµÑ€Ğ½Ñ‹Ğ¹ Ğ½Ğ¾Ğ¼ĞµÑ€ Ñ‚ĞµĞ»ĞµÑ„Ğ¾Ğ½Ğ°!",
+    name: "Ğ£ĞºĞ°Ğ¶Ğ¸Ñ‚Ğµ Ğ²ĞµÑ€Ğ½Ğ¾Ğµ Ğ¸Ğ¼Ñ ĞºĞ¾Ñ‚Ğ°!",
+    email: "Ğ£ĞºĞ°Ğ¶Ğ¸Ñ‚Ğµ Ğ²ĞµÑ€Ğ½ÑƒÑ Ğ¿Ğ¾Ñ‡Ñ‚Ñƒ!",
+    weight: "Ğ£ĞºĞ°Ğ¶Ğ¸Ñ‚Ğµ Ğ²ĞµÑ Ğ²Ğ°ÑˆĞµĞ³Ğ¾ Ğ¿Ğ¸Ñ‚Ğ¾Ğ¼Ñ†Ğ°!",
+    age: "Ğ£ĞºĞ°Ğ¶Ğ¸Ñ‚Ğµ Ğ²Ğ¾Ğ·Ñ€Ğ°ÑÑ‚ Ğ²Ğ°ÑˆĞµĞ³Ğ¾ Ğ¿Ğ¸Ñ‚Ğ¾Ğ¼Ñ†Ğ°!",
+    password: "Ğ˜ÑĞºĞ»ÑÑ‡Ğ¸Ñ‚Ğµ Ğ¸Ğ· Ğ²Ğ°ÑˆĞµĞ³Ğ¾ Ğ¿Ğ°Ñ€Ğ¾Ğ»Ñ ÑĞ¿ĞµÑ†. ÑĞ¸Ğ¼Ğ²Ğ¾Ğ»Ñ‹!"
 };
 
 export const regExp = {
-    email: /^((([0-9A-Za-z]{1}[-0-9A-z\.]{1,}[0-9A-Za-z]{1})|([0-9À-ßà-ÿ]{1}[-0-9À-ÿ\.]{1,}[0-9À-ßà-ÿ]{1}))@([-A-Za-z]{1,}\.){1,2}[-A-Za-z]{2,})$/,
+    email: /^((([0-9A-Za-z]{1}[-0-9A-z\.]{1,}[0-9A-Za-z]{1})|([0-9Ğ-Ğ¯Ğ°-Ñ]{1}[-0-9Ğ-Ñ\.]{1,}[0-9Ğ-Ğ¯Ğ°-Ñ]{1}))@([-A-Za-z]{1,}\.){1,2}[-A-Za-z]{2,})$/,
     weight: /^([0-1]?[0-9])$/,
     phone: /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/,
-    name: /^[a-zA-Zà-ÿÀ-ß"][a-zA-Zà-ÿÀ-ß-"]+[a-zA-Zà-ÿÀ-ß"]$/,
+    name: /^[a-zA-ZĞ°-ÑĞ-Ğ¯"][a-zA-ZĞ°-ÑĞ-Ğ¯-"]+[a-zA-ZĞ°-ÑĞ-Ğ¯"]$/,
     age: /^([0-2]?[0-9])$/,
     password: /(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/,
 };
 
-export let validate = function (key, value) {
+export const validate = function (key, value) {
     (!(regExp[key].test(value))) ? document.getElementById(key).setCustomValidity(errorText[key]) : document.getElementById(key).setCustomValidity("");
 };
 
-const auth = firebase.auth();
-
-export let signOut = function () {
-
-    auth.signOut();
-    window.location.replace("index.html");
-
+export class Requests {
+    static create(request) {
+        return fetch("https://catenergy-bd4c1.firebaseio.com/requests.json", {
+            method: "POST",
+            body: JSON.stringify(request),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+            .then(response => response.json())
+            .then(response => {
+                request.id = response.name
+                return request
+            })
+    }
 }
+ 

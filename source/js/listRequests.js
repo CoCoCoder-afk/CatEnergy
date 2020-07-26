@@ -7,23 +7,31 @@ var firebaseConfig = {
     messagingSenderId: "502760223466",
     appId: "1:502760223466:web:6972347aaacff6973f5d93"
 };
-// Initialize Firebase
+
 firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
+export const auth = firebase.auth();
 let database = firebase.database(),
     ref = database.ref("requests"),
-    data;
+    data,
+    content = "",
+    keys = [],
+    child_removed = false,
+    items = "",
+    signOutBtn = document.getElementById("signOutBtn");
 
-let content = "";
-
-function signOut() {
+let signOut = function () {
 
     auth.signOut();
     window.location.replace("index.html");
 
 }
-let keys = [];
-let child_removed = false;
+
+function removeRequest(key) {
+
+    this.parentNode.parentNode.remove();
+    ref.child(key).remove();
+
+}
 
 ref.on("child_removed", function () {
     child_removed = true;
@@ -48,17 +56,5 @@ ref.on("value", function (snapshot) {
     }
 });
 
-function removeRequest(key) {
-
-    this.parentNode.parentNode.remove();
-    ref.child(key).remove();
-
-}
-
-
-
-function renderRequest(doc) {
-    document.querySelector(".item").setAttribute("data-id", doc.id);
-}
-
+signOutBtn.addEventListener("click", signOut, false);
 
