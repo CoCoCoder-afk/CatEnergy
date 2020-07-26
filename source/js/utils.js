@@ -36,4 +36,8 @@ export class Requests {
             })
     }
 }
+
+export function backMenu() {
+    window.location.replace("index.html");
+}
  

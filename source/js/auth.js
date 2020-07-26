@@ -10,6 +10,8 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
+let backMenuBtn = document.getElementById("loginBackMenu");
+
 function signUp() {
 
     let email = document.getElementById("loginEmail");
@@ -37,6 +39,3 @@ auth.onAuthStateChanged(function (user) {
     }
 });
 
-function backMenu() {
-    window.location.replace("index.html");
-}
