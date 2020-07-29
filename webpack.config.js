@@ -1,9 +1,13 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./source/app.js",
+    entry: {
+        auth: "./source/js/auth.js",
+        listRequests: "./source/js/listRequests.js",
+        forms: "./source/js/forms.js"
+    },
   output: {
-    filename: "bundle.js",
+    filename: "[name].bundle.js",
     path: path.resolve(__dirname, "source/js")
   },
   devServer: {

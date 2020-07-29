@@ -1,30 +1,14 @@
-var firebaseConfig = {
-    apiKey: "AIzaSyAXNJV2NKPM6wEFE84iwu31snNtQFrpKiA",
-    authDomain: "catenergy-bd4c1.firebaseapp.com",
-    databaseURL: "https://catenergy-bd4c1.firebaseio.com",
-    projectId: "catenergy-bd4c1",
-    storageBucket: "catenergy-bd4c1.appspot.com",
-    messagingSenderId: "502760223466",
-    appId: "1:502760223466:web:6972347aaacff6973f5d93"
-};
+import { signOut } from "./utils.js";
+import { auth, database } from "./firebase.js";
 
-firebase.initializeApp(firebaseConfig);
-export const auth = firebase.auth();
-let database = firebase.database(),
-    ref = database.ref("requests"),
-    data,
+let data,
     content = "",
     keys = [],
     child_removed = false,
     items = "",
-    signOutBtn = document.getElementById("signOutBtn");
+    signOutBtn = document.getElementById("signOutBtn"),
+    ref = database.ref("requests");
 
-let signOut = function () {
-
-    auth.signOut();
-    window.location.replace("index.html");
-
-}
 
 function removeRequest(key) {
 
@@ -58,3 +42,4 @@ ref.on("value", function (snapshot) {
 
 signOutBtn.addEventListener("click", signOut, false);
 
+console.log('listRequests');

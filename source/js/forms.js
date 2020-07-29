@@ -1,5 +1,4 @@
-import { Requests } from "./utils.js";
-import { validate } from "./utils.js";
+import { Requests, validate } from "./utils.js";
 
 let form = document.getElementById("mainForm"),
     weight = document.querySelector("#weight"),
@@ -77,3 +76,5 @@ function submitForm(event) {
     }
     Requests.create(request);
 }
+
+console.log('forms');

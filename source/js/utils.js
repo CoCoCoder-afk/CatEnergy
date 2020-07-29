@@ -1,4 +1,6 @@
-export const errorText = {
+import { auth } from "./firebase.js";
+
+const errorText = {
     phone: "Укажите верный номер телефона!",
     name: "Укажите верное имя кота!",
     email: "Укажите верную почту!",
@@ -7,7 +9,7 @@ export const errorText = {
     password: "Исключите из вашего пароля спец. символы!"
 };
 
-export const regExp = {
+const regExp = {
     email: /^((([0-9A-Za-z]{1}[-0-9A-z\.]{1,}[0-9A-Za-z]{1})|([0-9А-Яа-я]{1}[-0-9А-я\.]{1,}[0-9А-Яа-я]{1}))@([-A-Za-z]{1,}\.){1,2}[-A-Za-z]{2,})$/,
     weight: /^([0-1]?[0-9])$/,
     phone: /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/,
@@ -19,6 +21,11 @@ export const regExp = {
 export const validate = function (key, value) {
     (!(regExp[key].test(value))) ? document.getElementById(key).setCustomValidity(errorText[key]) : document.getElementById(key).setCustomValidity("");
 };
+
+export function backMenu() {
+    window.location.replace("index.html");
+}
+
 
 export class Requests {
     static create(request) {
@@ -37,7 +44,9 @@ export class Requests {
     }
 }
 
-export function backMenu() {
+export let signOut = function () {
+
+    auth.signOut();
     window.location.replace("index.html");
+
 }
- 

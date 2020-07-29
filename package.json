@@ -2,9 +2,9 @@
   "name": "dev",
   "version": "1.0.1",
   "description": "Pognali-Project",
-  "main": "index.js",
+  "main": "app.js",
   "dependencies": {
-    "firebase": "^7.16.0",
+    "firebase": "^7.17.1",
     "firebaseui": "^4.6.0",
     "node": "^14.2.0"
   },
@@ -50,7 +50,7 @@
     "gulpStart": "gulp start",
     "webStart": "webpack-dev-server --mode development --open",
     "gulpBuild": "gulp build",
-    "webBuild": "webpack --mode production",
+    "webBuild": "webpack --mode production --display-modules",
     "test": "gulp test"
   },
   "author": "graudeep",

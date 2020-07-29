@@ -15,16 +15,14 @@
                 </div>
                 <div class="login__wrapper">
                     <label for="password">Пароль</label>
-                    <input required type="password" id="loginPassword" class="login__password" placeholder="Ваш пароль">
+                    <input required type="password" autocomplete="on" id="loginPassword" class="login__password" placeholder="Ваш пароль">
                 </div>
-                <button class="login__button_signin login__button" onclick="signIn()" id="loginSignIn">Войти</button>
-                <button class="login__button_signup login__button" onclick="signUp()" id="loginSignUp">Зарегистрироваться</button>
+                <button class="login__button_signin login__button" id="loginSignIn">Войти</button>
+                <button class="login__button_signup login__button" id="loginSignUp">Зарегистрироваться</button>
                 <button class="login__button login__button_back" id="loginBackMenu">Назад</button>
             </div>
         </form>
     </main>
-    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
-    <script async src="./js/auth.js"></script>
+    <script defer type="module" charset="utf-8" src="js/auth.bundle.js"></script>
 </body>
 </html>
