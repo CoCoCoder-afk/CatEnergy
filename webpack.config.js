@@ -1,4 +1,6 @@
 const path = require("path");
+const TerserPlugin = require('terser-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     entry: {
@@ -9,11 +11,20 @@ module.exports = {
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "source/js")
-  },
+   },
+    mode: "production",
+    optimization: {
+        usedExports: true,
+        minimize: true,
+        minimizer: [new TerserPlugin()],
+    },
   devServer: {
      contentBase: path.join(__dirname, 'source/'),
     port: 3000
-  },
+    },
+    plugins: [
+        new BundleAnalyzerPlugin()
+    ],
   module: {
     rules: [
       {

@@ -1,6 +1,8 @@
-import firebase from "firebase";
+import * as firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/database";
 
-var firebaseConfig = {
+let firebaseConfig = {
     apiKey: "AIzaSyAXNJV2NKPM6wEFE84iwu31snNtQFrpKiA",
     authDomain: "catenergy-bd4c1.firebaseapp.com",
     databaseURL: "https://catenergy-bd4c1.firebaseio.com",
@@ -14,8 +16,3 @@ firebase.initializeApp(firebaseConfig);
 
 export let auth = firebase.auth();
 export let database = firebase.database();
-
-module.exports = {
-    auth,
-    database,
-}

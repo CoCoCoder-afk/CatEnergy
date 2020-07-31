@@ -1,10 +1,9 @@
-import { signOut } from "./utils.js";
 import { auth, database } from "./firebase.js";
 
 let data,
     content = "",
     keys = [],
-    child_removed = false,
+    isChildRemoved = false,
     items = "",
     signOutBtn = document.getElementById("signOutBtn"),
     ref = database.ref("requests");
@@ -22,7 +21,7 @@ ref.on("child_removed", function () {
 })
 
 ref.on("value", function (snapshot) {
-    if (!child_removed) {
+    if (!isChildRemoved) {
         snapshot.forEach(function (childSnapshot) {
             data = childSnapshot.val();
             keys.push(childSnapshot.key);
@@ -35,11 +34,13 @@ ref.on("value", function (snapshot) {
             buttonsRemove[i].addEventListener("click", removeRequest.bind(buttonsRemove[i], keys[i]), false);
         }
     }
-    else {
-        console.log("");
-    }
 });
 
-signOutBtn.addEventListener("click", signOut, false);
+let signOut = function () {
 
-console.log('listRequests');
+    auth.signOut();
+    window.location.replace("index.html");
+
+}
+
+signOutBtn.addEventListener("click", signOut, false);

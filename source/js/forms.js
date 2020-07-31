@@ -1,49 +1,49 @@
-import { Requests, validate } from "./utils.js";
+import { isValidate } from "./utils.js";
 
 let form = document.getElementById("mainForm"),
-    weight = document.querySelector("#weight"),
-    age = document.querySelector("#age"),
-    name = document.querySelector("#name"),
-    phone = document.querySelector("#phone"),
-    email = document.querySelector("#email"),
-    modal = document.querySelector(".modal"),
-    submitButton = document.getElementById("extra-button"),
-    slim = document.querySelector("#slim"),
-    getMass = document.querySelector("#getMass"),
-    idk = document.querySelector("#idk"),
-    sweetener = document.querySelector("#sweetener"),
-    water = document.querySelector("#water"),
-    milk = document.querySelector("#milk"),
-    vitamins = document.querySelector("#vitamins"),
-    comment = document.querySelector("#comment");
+    weight = form.querySelector("#weight"),
+    age = form.querySelector("#age"),
+    name = form.querySelector("#name"),
+    phone = form.querySelector("#phone"),
+    email = form.querySelector("#email"),
+    modal = form.querySelector(".modal"),
+    submitButton = form.querySelector("#extra-button"),
+    slim = form.querySelector("#slim"),
+    getMass = form.querySelector("#getMass"),
+    idk = form.querySelector("#idk"),
+    sweetener = form.querySelector("#sweetener"),
+    water = form.querySelector("#water"),
+    milk = form.querySelector("#milk"),
+    vitamins = form.querySelector("#vitamins"),
+    comment = form.querySelector("#comment");
 
 name.addEventListener("input", name.fnVal = function fn() {
   let nameValue = name.value;
-  validate("name", nameValue);
+  isValidate("name", nameValue);
 }, false);
 name.removeEventListener("click", name.fnVal, false);
 
 email.addEventListener("input", email.fnVal = function fn() {
   let emailValue = email.value;
-  validate("email", emailValue);
+  isValidate("email", emailValue);
 }, false);
 email.removeEventListener("click", email.fnVal, false);
 
 phone.addEventListener("input", phone.fnVal = function fn() {
   let phoneValue = phone.value;
-  validate("phone", phoneValue);
+  isValidate("phone", phoneValue);
 }, false);
 phone.removeEventListener("click", phone.fnVal, false);
 
 age.addEventListener("input", age.fnVal = function fn() {
   let ageValue = age.value;
-  validate("age", ageValue);
+  isValidate("age", ageValue);
 }, false);
 age.removeEventListener("click", age.fnVal, false);
 
 weight.addEventListener("input", weight.fnVal = function fn() {
   let weightValue = weight.value;
-  validate("weight", weightValue);
+  isValidate("weight", weightValue);
 }, false);
 weight.removeEventListener("click", weight.fnVal, false);
 
@@ -59,7 +59,7 @@ form.addEventListener("submit", submitForm);
 
 function submitForm(event) {
     event.preventDefault();
-    const request = {
+    let request = {
         name: "Имя: " + name.value,
         age: "Возраст: " + age.value,
         weight: "Вес: " + weight.value,
@@ -77,4 +77,19 @@ function submitForm(event) {
     Requests.create(request);
 }
 
-console.log('forms');
+class Requests {
+    static create(request) {
+        return fetch("https://catenergy-bd4c1.firebaseio.com/requests.json", {
+            method: "POST",
+            body: JSON.stringify(request),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+            .then(response => response.json())
+            .then(response => {
+                request.id = response.name
+                return request
+            })
+    }
+}
