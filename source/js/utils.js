@@ -24,3 +24,9 @@ export let isValidate = function (key, value) {
     (!(regExp[key].test(value))) ? document.getElementById(key).setCustomValidity(errorText["error" + (errorTextKeys.indexOf(key)+1)]) : document.getElementById(key).setCustomValidity("");
 };
 
+export let isOptionSelected = function (value) {
+    if (value.indexOf("true") + 1) {
+        return "выбрано";
+    }
+    return "не выбрано";
+}

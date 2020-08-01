@@ -59,6 +59,10 @@ form.addEventListener("submit", submitForm);
 
 function submitForm(event) {
     event.preventDefault();
+    let checked = {
+        slim: slim.checked,
+    }
+
     let request = {
         name: "Имя: " + name.value,
         age: "Возраст: " + age.value,
