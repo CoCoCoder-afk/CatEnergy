@@ -59,25 +59,22 @@ form.addEventListener("submit", submitForm);
 
 function submitForm(event) {
     event.preventDefault();
-    let checked = {
-        slim: slim.checked,
-    }
-
     let request = {
-        name: "Имя: " + name.value,
-        age: "Возраст: " + age.value,
-        weight: "Вес: " + weight.value,
-        email: "Электронная почта: " + email.value,
-        phone: "Номер телефона: " + phone.value,
-        slim: "Похудение: " + slim.checked,
-        getMass: "Набор массы: " + getMass.checked,
-        idk: "Я не знаю (помогите с выбором): " + idk.checked,
-        sweetener: "Сахарозаменитель: " + sweetener.checked,
-        water: "Питьевая вода: " + water.checked,
-        milk: "Молоко: " + milk.checked,
-        vitamins: "Витамины: " + vitamins.checked,
-        comment: "Комментарий к заявке: " + comment.value,
+        name: name.value,
+        age: age.value,
+        weight: weight.value,
+        email: email.value,
+        phone: phone.value,
+        slim: slim.checked,
+        getMass: getMass.checked,
+        idk: idk.checked,
+        sweetener: sweetener.checked,
+        water: water.checked,
+        milk: milk.checked,
+        vitamins: vitamins.checked,
+        comment: comment.value,
     }
+    console.log(request);
     Requests.create(request);
 }
 

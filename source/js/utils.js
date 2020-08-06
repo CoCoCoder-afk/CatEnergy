@@ -25,7 +25,7 @@ export let isValidate = function (key, value) {
 };
 
 export let isOptionSelected = function (value) {
-    if (value.indexOf("true") + 1) {
+    if (value == true) {
         return "выбрано";
     }
     return "не выбрано";
